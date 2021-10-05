@@ -1,0 +1,44 @@
+//import 'dart:js';
+
+import "package:flutter/material.dart";
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  var questionIndex = 0;
+
+  void ansQ() {
+    questionIndex++;
+    print('Answer chosen');
+  }
+
+  Widget build(BuildContext context) {
+    var questions = ['What\'s your name??', 'What\'s your age??'];
+
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Trial App'),
+        ),
+        body: Column(
+          children: [
+            Text(questions[questionIndex]),
+            ElevatedButton(child: Text('Answer 1'), onPressed: ansQ),
+            ElevatedButton(
+                child: Text('Answer 2'),
+                onPressed: () => print('Answer 2 chosen')),
+                // 
+            ElevatedButton(
+                child: Text('Answer 3'),
+                onPressed: () {
+                  // ...
+                  print('Answer III chosen');
+                }),
+          ],
+        ),
+      ),
+    );
+  }
+}
